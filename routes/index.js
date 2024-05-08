@@ -39,7 +39,7 @@ router.post("/signup", async (req, res, next) => {
 });
 
 
-// POST login existing user	**fix this to use the UserService
+// POST login existing user
 router.post("/login", async (req, res, next) => {
 	const userEmail = req.body.email;
     const userPassword = req.body.password;

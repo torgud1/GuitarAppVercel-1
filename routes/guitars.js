@@ -6,10 +6,11 @@ var db = require('../models');
 var GuitarService = require('../services/GuitarService');
 var guitarService = new GuitarService(db);
 
+var jwt = require('jsonwebtoken');
+
 //Check if authorized
 const ensureAuth = function (req, res, next) {
     const token = req.headers.authorization?.split(' ')[1];
-    console.log("Token:", req.headers.authorization?.split(' ')[1]);	//remove this log***
     if (!token) {
         res.status(401).json({ success: false, message: "Error! Token was not provided." });
         return;

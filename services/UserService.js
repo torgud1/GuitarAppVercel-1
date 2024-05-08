@@ -13,12 +13,6 @@ class UserService {
         ) 
     }
 
-    // async getOne(userEmail) {        
-    //     return await this.User.findOne({
-    //         where: {email: userEmail},
-    //     });
-    // }
-
     async getOne(userEmail) {
 		const user = await this.User.findOne({
 			where: {
