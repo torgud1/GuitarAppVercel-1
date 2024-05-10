@@ -9,8 +9,8 @@ class GuitarService {
 
 	async create(year, price, brandId, modelId, colorId) {
 		return this.Guitar.create({
-			year: year,
-			price: price,
+			Year: year,
+			Price: price,
 			BrandId: brandId,
 			ModelId: modelId,
 			ColorId: colorId,

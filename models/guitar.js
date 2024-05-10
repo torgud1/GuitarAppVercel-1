@@ -1,7 +1,7 @@
 module.exports = (sequelize, Sequelize) => {
     const Guitar = sequelize.define('Guitar', {
-        year: Sequelize.DataTypes.DATE,
-        price: Sequelize.DataTypes.DOUBLE,
+        Year: Sequelize.DataTypes.DATE,
+        Price: Sequelize.DataTypes.DOUBLE,
     }, {
         timestamps: false
     });

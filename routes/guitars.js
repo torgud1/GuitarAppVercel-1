@@ -39,11 +39,13 @@ router.get('/:guitarId', ensureAuth, async function (req, res, next) {
 
 /* POST new Guitar */
 router.post('/', ensureAuth, jsonParser, async function (req, res, next) {
-	let Year = req.body.Year;
-	let Price = req.body.Price;
-	let BrandId = req.body.BrandId;
-	let ModelId = req.body.ModelId;
-	let ColorId = req.body.ColorId;
+	let Year = req.body.year;
+	let Price = req.body.price;
+	let BrandId = req.body.brandId;
+	let ModelId = req.body.modelId;
+	let ColorId = req.body.colorId;
+	console.log("Year: ", Year);
+	console.log("Price: ", Price);
 	const newGuitar = await guitarService.create(Year, Price, BrandId, ModelId, ColorId);
 	res.status(200).json({ success: true, message: "Guitar added successfully.", newGuitar });
 });
