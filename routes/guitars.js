@@ -28,14 +28,12 @@ const ensureAuth = function (req, res, next) {
 /* GET all Guitars */
 router.get('/', ensureAuth, async function (req, res, next) {
 	const guitars = await guitarService.get();
-	// res.render('guitars', { guitars: guitars });
 	res.json(guitars).status(200);
 });
 
 /* GET specified Guitar */
 router.get('/:guitarId', ensureAuth, async function (req, res, next) {
 	const guitar = await guitarService.getGuitarDetails(req.params.guitarId);
-	// res.render('guitarDetails', { guitar: guitar});
 	res.json(guitar).status(200);
 });
 
@@ -46,8 +44,8 @@ router.post('/', ensureAuth, jsonParser, async function (req, res, next) {
 	let BrandId = req.body.BrandId;
 	let ModelId = req.body.ModelId;
 	let ColorId = req.body.ColorId;
-	await guitarService.create(Year, Price, BrandId, ModelId, ColorId);
-	res.end();
+	const newGuitar = await guitarService.create(Year, Price, BrandId, ModelId, ColorId);
+	res.status(200).json({ success: true, message: "Guitar added successfully.", newGuitar });
 });
 
 /* DELETE new Guitar */
